@@ -1,36 +1,72 @@
-const btn1 = document.getElementById("btn1");
-const btn2 = document.getElementById("btn2");
-const btn3 = document.getElementById("btn3");
-const btn4 = document.getElementById("btn4");
+const fondos = {
 
-/* BOTON 1 */
-btn1.addEventListener("click", () => {
+    betta: {
+
+        img: 'IMAGENES/BETTA.jpg',
+        nombre: 'BETTA'
+    },
+
+    disco: {
+
+        img: 'IMAGENES/DISCO IM.jpg',
+        nombre: 'DISCO'
+    },
+
+    mar: {
+
+        img: 'IMAGENES/MAR.jpg',
+        nombre: 'MAR'
+    },
+
+    raya: {
+
+        img: 'IMAGENES/RAYA.jpg',
+        nombre: 'RAYA'
+    }
+};
+
+/* LIMPIAR BOTONES */
+
+function limpiarBotones(){
+
+    document.querySelectorAll('.btn').forEach(function(boton){
+
+        boton.classList.remove('activo');
+
+    });
+}
+
+/* CAMBIAR FONDO */
+
+function cambiarFondo(key){
+
+    limpiarBotones();
+
+    const boton =
+    document.querySelector(`.btn[data-fondo="${key}"]`);
+
+    if(boton){
+
+        boton.classList.add('activo');
+    }
+
+    const fondo = fondos[key];
+
+    if(!fondo) return;
 
     document.body.style.backgroundImage =
-    "url('IMAGEN/BETTA.jpg')";
+    `url('${fondo.img}')`;
+}
 
-});
+/* EVENTOS */
 
-/* BOTON 2 */
-btn2.addEventListener("click", () => {
+document.querySelectorAll('.btn').forEach(function(boton){
 
-    document.body.style.backgroundImage =
-    "url('IMAGEN/DISCO IM.jpg')";
+    boton.addEventListener('click', function(){
 
-});
+        const clave = boton.dataset.fondo;
 
-/* BOTON 3 */
-btn3.addEventListener("click", () => {
+        cambiarFondo(clave);
 
-    document.body.style.backgroundImage =
-    "url('IMAGEN/MAR.jpg')";
-
-});
-
-/* BOTON 4 */
-btn4.addEventListener("click", () => {
-
-    document.body.style.backgroundImage =
-    "url('IMAGEN/RAYA.jpg')";
-
+    });
 });
