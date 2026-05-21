@@ -5,10 +5,10 @@
 }
 
 body{
+
     height: 100vh;
 
-    /* IMAGEN INICIAL */
-    background-image: url("https://picsum.photos/id/1015/1200/800");
+    background-image: url("IMAGENES/BETTA.jpg");
 
     background-size: cover;
     background-position: center;
@@ -23,8 +23,8 @@ body{
     transition: 0.5s;
 }
 
-/* CAPA OSCURA */
 body::before{
+
     content: "";
 
     position: absolute;
@@ -36,7 +36,9 @@ body::before{
 }
 
 /* CONTENEDOR */
+
 .contenedor{
+
     position: relative;
 
     display: flex;
@@ -61,6 +63,7 @@ body::before{
 }
 
 /* TITULO */
+
 .titulo{
 
     color: white;
@@ -81,16 +84,21 @@ body::before{
     0 0 10px rgba(255,255,255,0.8),
     0 0 20px rgba(255,255,255,0.6),
     0 0 40px rgba(255,255,255,0.4);
-
 }
+
 /* BOTONES */
+
 .botones{
+
     display: flex;
+
     gap: 20px;
 }
 
 /* BOTONES INDIVIDUALES */
-button{
+
+.btn{
+
     width: 140px;
     height: 55px;
 
@@ -99,7 +107,7 @@ button{
 
     background: rgba(255,255,255,0.15);
 
-    color: rgb(255, 255, 255);
+    color: white;
 
     font-size: 17px;
     font-weight: bold;
@@ -109,13 +117,30 @@ button{
     transition: 0.3s;
 }
 
-/* EFECTO */
-button:hover{
+/* HOVER */
+
+.btn:hover{
+
     transform: translateY(-5px);
 
-    background: rgb(255, 248, 248);
+    background: white;
 
     color: black;
 
     box-shadow: 0 5px 15px rgba(255,255,255,0.4);
+}
+
+/* BOTON ACTIVO */
+
+.activo{
+
+    background: white;
+
+    color: black;
+
+    transform: scale(1.08);
+
+    box-shadow:
+    0 0 15px white,
+    0 0 30px rgba(255,255,255,0.7);
 }
